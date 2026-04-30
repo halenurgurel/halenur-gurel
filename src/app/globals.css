@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+/* Class-based dark mode — ThemeProvider sets class="dark" on <html> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-space-grotesk);
+  --font-mono: var(--font-jetbrains-mono);
+
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-accent: var(--accent);
+  --color-accent-secondary: var(--accent-secondary);
+}
+
+/* Palette */
+:root,
+.dark {
+  --color-blush: #f49aa2;
+  --color-rose: #e37083;
+  --color-amber: #ffb876;
+  --color-sage: #a8bf8a;
+  --color-mint: #b4d8d4;
+  --color-steel: #89b7c2;
+  --color-lavender: #d2cbe3;
+  --color-mauve: #a299b8;
+}
+
+/* Light theme */
+:root {
+  --background: #f8f4f5;
+  --surface: #fffbfc;
+  --border: #e8dade;
+  --text-primary: #1c1015;
+  --text-secondary: #776068;
+  --accent: var(--color-rose);
+  --accent-secondary: var(--color-amber);
+  --glow: rgba(227, 112, 131, 0.28);
+  --glow-secondary: rgba(255, 184, 118, 0.22);
+}
+
+/* Dark theme */
+.dark {
+  --background: #120f11;
+  --surface: #1d1a1d;
+  --border: #2d2830;
+  --text-primary: #f5f3f4;
+  --text-secondary: #9a9095;
+  --accent: var(--color-rose);
+  --accent-secondary: var(--color-amber);
+  --glow: rgba(227, 112, 131, 0.35);
+  --glow-secondary: rgba(255, 184, 118, 0.25);
+}
+
+/* Base styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Gradient utilities */
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    var(--color-rose) 0%,
+    var(--color-blush) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: 12px;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    var(--color-rose),
+    var(--color-amber),
+    var(--color-sage),
+    var(--color-steel),
+    var(--color-mauve)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Glow effects */
+.glow-accent {
+  box-shadow: 0 0 40px var(--glow);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Text selection */
+::selection {
+  background: rgba(227, 112, 131, 0.22);
+  color: var(--text-primary);
+}
