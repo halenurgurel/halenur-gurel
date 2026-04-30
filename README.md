@@ -2,6 +2,8 @@
 
 Personal portfolio site built with Next.js 16, React 19, and Tailwind CSS v4. Features smooth scroll animations, dark/light mode, and a fully responsive single-page layout.
 
+**Live Demo:** [halenur-gurel.vercel.app](https://halenur-gurel.vercel.app/)
+
 ---
 
 ## Tech Stack
