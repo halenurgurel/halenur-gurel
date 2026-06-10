@@ -1,6 +1,6 @@
 export const experience = [
   {
-    role: "Full-Stack Developer",
+    role: "Front-end Developer",
     company: "Invora",
     location: "Remote",
     period: "Apr 2026 – Present",
@@ -107,9 +107,25 @@ export const projects = [
     period: "Apr 2026",
     description:
       "A camper van rental browsing platform with filtering by equipment and vehicle type, favourites management, and a booking form. Built with a focus on clean UX and responsive layout.",
-    tech: ["React 19", "Redux Toolkit", "React Router v7", "Axios", "Tailwind CSS v4", "MUI Icons", "Vite", "Sonner", "react-photo-view", "react-day-picker"],
+    tech: [
+      "React 19",
+      "Redux Toolkit",
+      "React Router v7",
+      "Axios",
+      "Tailwind CSS v4",
+      "MUI Icons",
+      "Vite",
+      "Sonner",
+      "react-photo-view",
+      "react-day-picker",
+    ],
     github: "https://github.com/halenurgurel/travel-trucks",
     live: "https://halenur-gurel-travel-trucks.vercel.app/",
+    screenshots: [
+      "/screenshots/travel-trucks1.png",
+      "/screenshots/travel-trucks2.png",
+      "/screenshots/travel-trucks3.png",
+    ] as string[],
   },
   {
     title: "CinePink",
@@ -118,9 +134,25 @@ export const projects = [
     period: "Feb 2026 - Apr 2026",
     description:
       "A personal movie discovery app built with a bold pink aesthetic. Features movie browsing, search, and detailed film pages powered by a public movie API.",
-    tech: ["React 19", "React Router v7", "Tailwind CSS v4", "Firebase", "TMDB API", "Axios", "Swiper", "MUI Icons", "Sonner"],
+    tech: [
+      "React 19",
+      "React Router v7",
+      "Tailwind CSS v4",
+      "Firebase",
+      "TMDB API",
+      "Axios",
+      "Swiper",
+      "MUI Icons",
+      "Sonner",
+    ],
     github: "https://github.com/halenurgurel/cinepink",
     live: "https://cinepink.vercel.app/",
+    screenshots: [
+      "/screenshots/cinepink1.png",
+      "/screenshots/cinepink2.png",
+      "/screenshots/cinepink3.png",
+      "/screenshots/cinepink4.png",
+    ] as string[],
   },
   {
     title: "Slim Mom",
@@ -132,6 +164,7 @@ export const projects = [
     tech: ["React", "Redux Toolkit", "Node.js", "Express", "MongoDB"],
     github: "https://github.com/halenurgurel/slim-moms",
     live: "https://goit-slim-moms.vercel.app/",
+    screenshots: ["/screenshots/slim-mom1.png"] as string[],
   },
   {
     title: "Money Guard",
@@ -143,6 +176,10 @@ export const projects = [
     tech: ["React", "Redux Toolkit", "Chart.js", "Monobank API"],
     github: "https://github.com/halenurgurel/money-guard",
     live: "https://goit-react-money-guard.vercel.app/",
+    screenshots: [
+      "/screenshots/money-guard1.png",
+      "/screenshots/money-guard2.png",
+    ] as string[],
   },
   {
     title: "Cinemania",
@@ -154,6 +191,12 @@ export const projects = [
     tech: ["Vanilla JavaScript", "HTML", "CSS", "Vite"],
     github: "https://github.com/halenurgurel/cinemania",
     live: "https://january-javascript-project.github.io/cinemania/",
+    screenshots: [
+      "/screenshots/cinemania1.png",
+      "/screenshots/cinemania2.png",
+      "/screenshots/cinemania3.png",
+      "/screenshots/cinemania4.png",
+    ] as string[],
   },
 ];
 
