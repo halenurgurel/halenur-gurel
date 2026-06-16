@@ -31,7 +31,8 @@ export function Contact() {
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(162, 153, 184, 0.12) 0%, transparent 70%)",
+          background:
+            "radial-gradient(circle, rgba(162, 153, 184, 0.12) 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
       />
@@ -51,13 +52,20 @@ export function Contact() {
           </p>
           <h2
             className="text-4xl sm:text-5xl font-bold mb-6"
-            style={{ fontFamily: "var(--font-space-grotesk)", color: "var(--text-primary)" }}
+            style={{
+              fontFamily: "var(--font-space-grotesk)",
+              color: "var(--text-primary)",
+            }}
           >
             Get In <span className="gradient-text">Touch</span>
           </h2>
-          <p className="text-lg leading-relaxed mb-12" style={{ color: "var(--text-secondary)" }}>
-            Have a project idea, a collaboration in mind, or just want to connect?
-            I&apos;d love to hear from you — feel free to reach out anytime.
+          <p
+            className="text-lg leading-relaxed mb-12"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            Have a project idea, a collaboration in mind, or just want to
+            connect? I&apos;d love to hear from you. Feel free to reach out
+            anytime.
           </p>
         </motion.div>
 
@@ -73,7 +81,8 @@ export function Contact() {
             href={`mailto:${contact.email}`}
             className="inline-flex items-center gap-3 px-8 py-4 rounded-xl text-sm font-semibold text-white transition-all duration-300"
             style={{
-              background: "linear-gradient(135deg, var(--color-rose), var(--color-blush))",
+              background:
+                "linear-gradient(135deg, var(--color-rose), var(--color-blush))",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = "translateY(-2px)";
@@ -91,8 +100,18 @@ export function Contact() {
           {/* Social icon links */}
           <div className="flex items-center gap-3">
             {[
-              { href: contact.github, label: "GitHub", icon: <GitHubIcon />, hoverColor: "var(--accent)" },
-              { href: contact.linkedin, label: "LinkedIn", icon: <LinkedInIcon />, hoverColor: "var(--accent-secondary)" },
+              {
+                href: contact.github,
+                label: "GitHub",
+                icon: <GitHubIcon />,
+                hoverColor: "var(--accent)",
+              },
+              {
+                href: contact.linkedin,
+                label: "LinkedIn",
+                icon: <LinkedInIcon />,
+                hoverColor: "var(--accent-secondary)",
+              },
             ].map(({ href, label, icon, hoverColor }) => (
               <a
                 key={label}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -24,15 +24,37 @@ function ProjectSlideshow({
 }) {
   const [current, setCurrent] = useState(0);
   const [lightbox, setLightbox] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const panning = useRef(false);
+
+  const startTimer = useCallback(() => {
+    if (!screenshots.length) return;
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(
+      () => setCurrent((i) => (i + 1) % screenshots.length),
+      3500,
+    );
+  }, [screenshots]);
 
   useEffect(() => {
-    if (!screenshots.length) return;
-    const timer = setInterval(
-      () => setCurrent((i) => (i + 1) % screenshots.length),
-      3500
-    );
-    return () => clearInterval(timer);
-  }, [screenshots]);
+    startTimer();
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, [startTimer]);
+
+  const goTo = useCallback((index: number) => {
+    setCurrent(index);
+    startTimer();
+  }, [startTimer]);
+
+  const goPrev = useCallback(() => {
+    setCurrent((i) => (i - 1 + screenshots.length) % screenshots.length);
+    startTimer();
+  }, [screenshots.length, startTimer]);
+
+  const goNext = useCallback(() => {
+    setCurrent((i) => (i + 1) % screenshots.length);
+    startTimer();
+  }, [screenshots.length, startTimer]);
 
   const closeLightbox = useCallback(() => setLightbox(false), []);
 
@@ -40,10 +62,12 @@ function ProjectSlideshow({
     if (!lightbox) return;
     const handler = (e: KeyboardEvent) => {
       if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") goPrev();
+      if (e.key === "ArrowRight") goNext();
     };
     document.addEventListener("keydown", handler);
     return () => document.removeEventListener("keydown", handler);
-  }, [lightbox, closeLightbox]);
+  }, [lightbox, closeLightbox, goPrev, goNext]);
 
   if (!screenshots.length) {
     return (
@@ -51,7 +75,10 @@ function ProjectSlideshow({
         className="flex items-center justify-center aspect-16/10 lg:aspect-auto lg:h-full"
         style={{ background: `rgba(${color.r}, 0.06)` }}
       >
-        <span className="text-xs font-mono" style={{ color: "var(--text-secondary)" }}>
+        <span
+          className="text-xs font-mono"
+          style={{ color: "var(--text-secondary)" }}
+        >
           Screenshots coming soon
         </span>
       </div>
@@ -60,10 +87,16 @@ function ProjectSlideshow({
 
   return (
     <>
-      <div
-        className="relative aspect-16/10 lg:aspect-auto lg:h-full overflow-hidden cursor-zoom-in"
-        style={{ background: `rgba(${color.r}, 0.06)` }}
-        onClick={() => setLightbox(true)}
+      <motion.div
+        className="relative aspect-16/10 lg:aspect-auto lg:h-full overflow-hidden cursor-zoom-in select-none"
+        style={{ background: `rgba(${color.r}, 0.06)`, touchAction: "pan-y" }}
+        onPanStart={() => { panning.current = true; }}
+        onPanEnd={(_, info) => {
+          if (info.offset.x < -40) goNext();
+          else if (info.offset.x > 40) goPrev();
+          setTimeout(() => { panning.current = false; }, 0);
+        }}
+        onClick={() => { if (!panning.current) setLightbox(true); }}
       >
         {screenshots.map((src, i) => (
           <div
@@ -89,16 +122,17 @@ function ProjectSlideshow({
             {screenshots.map((_, i) => (
               <button
                 key={i}
-                onClick={() => setCurrent(i)}
+                onClick={() => goTo(i)}
                 className="w-2 h-2 rounded-full transition-all"
                 style={{
-                  background: i === current ? color.hex : `rgba(${color.r}, 0.3)`,
+                  background:
+                    i === current ? color.hex : `rgba(${color.r}, 0.3)`,
                 }}
               />
             ))}
           </div>
         )}
-      </div>
+      </motion.div>
 
       {lightbox &&
         typeof document !== "undefined" &&
@@ -120,7 +154,7 @@ function ProjectSlideshow({
               />
             </div>
           </div>,
-          document.body
+          document.body,
         )}
     </>
   );
@@ -297,7 +331,8 @@ export function Projects() {
                               "linear-gradient(135deg, var(--color-rose), var(--color-blush))",
                           }}
                           onMouseEnter={(e) => {
-                            e.currentTarget.style.transform = "translateY(-1px)";
+                            e.currentTarget.style.transform =
+                              "translateY(-1px)";
                             e.currentTarget.style.boxShadow =
                               "0 8px 20px var(--glow)";
                           }}
@@ -328,7 +363,7 @@ export function Projects() {
           className="text-center mt-12 text-sm font-mono"
           style={{ color: "var(--text-secondary)" }}
         >
-          More projects coming soon ✨
+          {" "}
         </motion.p>
       </div>
     </section>

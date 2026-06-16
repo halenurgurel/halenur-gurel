@@ -11,14 +11,18 @@ function PhotoBlock() {
         <div
           className="absolute inset-0 rounded-2xl pointer-events-none"
           style={{
-            background: "linear-gradient(135deg, var(--color-rose), var(--color-blush), var(--color-lavender), var(--color-mint), var(--color-mauve))",
+            background:
+              "linear-gradient(135deg, var(--color-rose), var(--color-blush), var(--color-lavender), var(--color-mint), var(--color-mauve))",
             filter: "blur(40px)",
             opacity: 0.35,
             transform: "scale(1.12)",
           }}
         />
         <div className="relative gradient-border p-0.75 rounded-2xl">
-          <div className="rounded-2xl overflow-hidden" style={{ width: 360, height: 400 }}>
+          <div
+            className="rounded-2xl overflow-hidden"
+            style={{ width: 360, height: 400 }}
+          >
             <Image
               src="/profile.jpg"
               alt="Halenur Gurel"
@@ -36,12 +40,20 @@ function PhotoBlock() {
 
 function BioBlock() {
   return (
-    <p className="text-lg leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-      <span style={{ color: "var(--text-primary)", fontWeight: 600 }}>Full-Stack Developer</span>{" "}
+    <p
+      className="text-lg leading-relaxed"
+      style={{ color: "var(--text-secondary)" }}
+    >
+      <span style={{ color: "var(--text-primary)", fontWeight: 600 }}>
+        Full-Stack Developer
+      </span>{" "}
       with a background in{" "}
-      <span style={{ color: "var(--text-primary)", fontWeight: 600 }}>Social Media Marketing</span>{" "}
-      and CRM strategy. I build scalable, user-friendly interfaces with strong UI/UX awareness —
-      bringing a marketer&apos;s eye for what resonates to every product I ship.
+      <span style={{ color: "var(--text-primary)", fontWeight: 600 }}>
+        Social Media Marketing
+      </span>{" "}
+      and CRM strategy. I build scalable, user-friendly interfaces with strong
+      UI/UX awareness, bringing a marketer&apos;s eye for what resonates to
+      every product I ship.
     </p>
   );
 }
@@ -49,7 +61,10 @@ function BioBlock() {
 function ExperienceBlock() {
   return (
     <div>
-      <p className="text-xs font-mono tracking-[0.25em] uppercase mb-6" style={{ color: "var(--accent)" }}>
+      <p
+        className="text-xs font-mono tracking-[0.25em] uppercase mb-6"
+        style={{ color: "var(--accent)" }}
+      >
         Experience
       </p>
       <div className="space-y-0">
@@ -65,16 +80,27 @@ function ExperienceBlock() {
             <div className="flex flex-col items-center">
               <div
                 className="w-3 h-3 rounded-full border-2 shrink-0 mt-1"
-                style={{ background: "var(--background)", borderColor: entry.accent }}
+                style={{
+                  background: "var(--background)",
+                  borderColor: entry.accent,
+                }}
               />
               {i < experience.length - 1 && (
-                <div className="w-px flex-1 my-1" style={{ background: "var(--border)" }} />
+                <div
+                  className="w-px flex-1 my-1"
+                  style={{ background: "var(--border)" }}
+                />
               )}
             </div>
-            <div className={i < experience.length - 1 ? "flex-1 pb-8" : "flex-1"}>
+            <div
+              className={i < experience.length - 1 ? "flex-1 pb-8" : "flex-1"}
+            >
               <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
                 <div>
-                  <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
+                  <p
+                    className="text-sm font-semibold"
+                    style={{ color: "var(--text-primary)" }}
+                  >
                     {entry.role}
                     {entry.current && (
                       <span
@@ -89,18 +115,31 @@ function ExperienceBlock() {
                       </span>
                     )}
                   </p>
-                  <p className="text-xs font-mono mt-0.5" style={{ color: "var(--text-secondary)" }}>
+                  <p
+                    className="text-xs font-mono mt-0.5"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
                     {entry.company} · {entry.location}
                   </p>
                 </div>
-                <span className="text-xs font-mono shrink-0" style={{ color: entry.accent }}>
+                <span
+                  className="text-xs font-mono shrink-0"
+                  style={{ color: entry.accent }}
+                >
                   {entry.period}
                 </span>
               </div>
               <ul className="space-y-1.5">
                 {entry.bullets.map((b) => (
-                  <li key={b} className="flex gap-2 text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-                    <span className="w-1 h-1 rounded-full shrink-0 mt-2" style={{ background: entry.accent }} />
+                  <li
+                    key={b}
+                    className="flex gap-2 text-sm leading-relaxed"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    <span
+                      className="w-1 h-1 rounded-full shrink-0 mt-2"
+                      style={{ background: entry.accent }}
+                    />
                     {b}
                   </li>
                 ))}
@@ -116,7 +155,10 @@ function ExperienceBlock() {
 function EducationBlock() {
   return (
     <div className="w-full">
-      <p className="text-xs font-mono tracking-[0.25em] uppercase mb-4" style={{ color: "var(--accent)" }}>
+      <p
+        className="text-xs font-mono tracking-[0.25em] uppercase mb-4"
+        style={{ color: "var(--accent)" }}
+      >
         Education
       </p>
       <div className="space-y-3">
@@ -128,33 +170,58 @@ function EducationBlock() {
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.08 }}
             className="flex items-start gap-3 p-3.5 rounded-xl"
-            style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
+            style={{
+              background: "var(--surface)",
+              border: "1px solid var(--border)",
+            }}
           >
-            <div className="w-2 h-2 rounded-full shrink-0 mt-1.5" style={{ background: ed.accent }} />
+            <div
+              className="w-2 h-2 rounded-full shrink-0 mt-1.5"
+              style={{ background: ed.accent }}
+            />
             <div className="flex-1 min-w-0">
               <div className="flex items-start justify-between gap-2">
                 <div>
-                  <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>
+                  <p
+                    className="text-sm font-medium"
+                    style={{ color: "var(--text-primary)" }}
+                  >
                     {ed.degree}
                   </p>
-                  <p className="text-xs font-mono mt-0.5" style={{ color: "var(--text-secondary)" }}>
+                  <p
+                    className="text-xs font-mono mt-0.5"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
                     {ed.school}
                   </p>
                   {"detail" in ed && (
-                    <p className="text-xs mt-0.5 font-medium" style={{ color: ed.accent }}>
+                    <p
+                      className="text-xs mt-0.5 font-medium"
+                      style={{ color: ed.accent }}
+                    >
                       {ed.detail}
                     </p>
                   )}
                 </div>
-                <span className="text-xs font-mono shrink-0 mt-0.5" style={{ color: "var(--text-secondary)" }}>
+                <span
+                  className="text-xs font-mono shrink-0 mt-0.5"
+                  style={{ color: "var(--text-secondary)" }}
+                >
                   {ed.period}
                 </span>
               </div>
               {ed.bullets && (
                 <ul className="mt-2 space-y-1">
                   {ed.bullets.map((b) => (
-                    <li key={b} className="flex gap-1.5 text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-                      <span className="w-1 h-1 rounded-full shrink-0 mt-1.5" style={{ background: ed.accent }} />
+                    <li
+                      key={b}
+                      className="flex gap-1.5 text-xs leading-relaxed"
+                      style={{ color: "var(--text-secondary)" }}
+                    >
+                      <span
+                        className="w-1 h-1 rounded-full shrink-0 mt-1.5"
+                        style={{ background: ed.accent }}
+                      />
                       {b}
                     </li>
                   ))}
@@ -180,12 +247,18 @@ export function About() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mb-16"
         >
-          <p className="text-xs font-mono tracking-[0.3em] uppercase mb-3" style={{ color: "var(--accent)" }}>
+          <p
+            className="text-xs font-mono tracking-[0.3em] uppercase mb-3"
+            style={{ color: "var(--accent)" }}
+          >
             Get to know me
           </p>
           <h2
             className="text-4xl sm:text-5xl font-bold"
-            style={{ fontFamily: "var(--font-space-grotesk)", color: "var(--text-primary)" }}
+            style={{
+              fontFamily: "var(--font-space-grotesk)",
+              color: "var(--text-primary)",
+            }}
           >
             About <span className="gradient-text">Me</span>
           </h2>

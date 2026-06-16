@@ -19,9 +19,9 @@ export const experience = [
     period: "Jan 2026 – Mar 2026",
     current: false,
     bullets: [
-      "Contributed to real-world web development projects within a professional Agile team environment, participating in daily standups, sprint planning, and task management using Juniflow — JuniusTech's custom Agile project management tool.",
+      "Contributed to real-world web development projects within a professional Agile team environment, participating in daily standups, sprint planning, and task management using Juniflow which is JuniusTech's custom Agile project management tool.",
       "Built responsive and dynamic user interfaces using React, TypeScript, and Tailwind CSS; collaborated through code reviews and pull requests to ensure code quality and consistency.",
-      "Took on increasing back - end responsibility — built REST API modules with NestJS and MongoDB as part of Therhappy, a full- stack online therapy platform: JWT - based auth flows, admin approval pipeline, session booking system with an i18n(EN / TR) React frontend with strict TypeScript throughout.",
+      "Took on increasing back - end responsibility. Built REST API modules with NestJS and MongoDB as part of Therhappy, a full- stack online therapy platform: JWT - based auth flows, admin approval pipeline, session booking system with an i18n(EN / TR) React frontend with strict TypeScript throughout.",
     ],
     accent: "var(--color-amber)",
   },
@@ -101,6 +101,36 @@ export const skills = [
 
 export const projects = [
   {
+    title: "Psychologists Services",
+    subtitle: "Therapist Discovery & Booking Platform",
+    role: "Solo Developer",
+    period: "May 2026",
+    description:
+      "A full-stack platform for discovering and booking sessions with licensed psychologists. Features a searchable therapist directory with sorting and pagination, favorites management, and appointment scheduling. All backed by Firebase Firestore with protected routes for authenticated users.",
+    tech: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "Firebase Auth",
+      "Firestore",
+      "Zustand",
+      "React Hook Form",
+      "Yup",
+    ],
+    github: "https://github.com/halenurgurel/psychologists-services",
+    live: "https://hales-psychologist-services.vercel.app/",
+    screenshots: [
+      "/screenshots/psy1.png",
+      "/screenshots/psy2.png",
+      "/screenshots/psy3.png",
+      "/screenshots/psy4.png",
+      "/screenshots/psy5.png",
+      "/screenshots/psy6.png",
+      "/screenshots/psy7.png",
+    ] as string[],
+  },
+  {
     title: "Travel Trucks",
     subtitle: "Camper Van Rental Platform",
     role: "Solo Developer",
@@ -127,6 +157,7 @@ export const projects = [
       "/screenshots/travel-trucks3.png",
     ] as string[],
   },
+
   {
     title: "CinePink",
     subtitle: "Movie Discovery App",
@@ -229,7 +260,7 @@ export const education = [
     detail: "Full scholarship",
     accent: "var(--color-mint)",
     bullets: [
-      "Full merit scholarship — ranked in top percentile nationwide university entrance exam",
+      "Full merit scholarship, ranked in top percentile nationwide university entrance exam",
       "Focus on social research methods, consumer behaviour, and organisational dynamics",
     ],
   },
