@@ -213,13 +213,13 @@ export function Projects() {
                 <div className="flex flex-col">
                   {/* Decorative banner */}
                   <div
-                    className="h-44 relative flex items-center justify-center overflow-hidden shrink-0"
+                    className="h-44 relative flex items-center justify-center overflow-hidden shrink-0 px-12 sm:px-16"
                     style={{
                       background: `linear-gradient(135deg, rgba(${c.r}, 0.22) 0%, rgba(${c.r}, 0.10) 100%)`,
                     }}
                   >
                     <span
-                      className="select-none text-7xl font-bold opacity-[0.12]"
+                      className="select-none text-3xl sm:text-5xl lg:text-7xl font-bold opacity-[0.12] text-center leading-tight line-clamp-2 wrap-break-word"
                       style={{
                         fontFamily: "var(--font-space-grotesk)",
                         color: c.hex,
