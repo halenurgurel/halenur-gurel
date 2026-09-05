@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { experience, education } from "@/lib/data";
+import { experience, education, contact } from "@/lib/data";
 
 function PhotoBlock() {
   return (
@@ -45,15 +45,34 @@ function BioBlock() {
       style={{ color: "var(--text-secondary)" }}
     >
       <span style={{ color: "var(--text-primary)", fontWeight: 600 }}>
-        Full-Stack Developer
+        Marketing Specialist
       </span>{" "}
-      with a background in{" "}
-      <span style={{ color: "var(--text-primary)", fontWeight: 600 }}>
-        Social Media Marketing
-      </span>{" "}
-      and CRM strategy. I build scalable, user-friendly interfaces with strong
-      UI/UX awareness, bringing a marketer&apos;s eye for what resonates to
-      every product I ship.
+      managing content strategy and production across Instagram, LinkedIn,
+      and YouTube at{" "}
+      <a
+        href="https://eva.guru"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ color: "var(--text-primary)", fontWeight: 600 }}
+        className="underline underline-offset-2 hover:opacity-80 transition-opacity"
+      >
+        Eva Commerce
+      </a>
+      , bridging creative and analytical skills.
+      Experienced in social content planning, short- and long-form video
+      production and editing, podcast scripting, newsletter management, and
+      data-driven blog production using Google Analytics. Also an active{" "}
+      <a
+        href={contact.instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ color: "var(--accent)", fontWeight: 600 }}
+        className="underline underline-offset-2 hover:opacity-80 transition-opacity"
+      >
+        content creator
+      </a>
+      , growing personal Instagram and TikTok accounts for over a year with a
+      strong grasp of platform dynamics and audience-targeted content.
     </p>
   );
 }
@@ -119,7 +138,20 @@ function ExperienceBlock() {
                     className="text-xs font-mono mt-0.5"
                     style={{ color: "var(--text-secondary)" }}
                   >
-                    {entry.company} · {entry.location}
+                    {"companyUrl" in entry && entry.companyUrl ? (
+                      <a
+                        href={entry.companyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline underline-offset-2 hover:opacity-80 transition-opacity"
+                        style={{ color: "var(--text-secondary)" }}
+                      >
+                        {entry.company}
+                      </a>
+                    ) : (
+                      entry.company
+                    )}{" "}
+                    · {entry.location}
                   </p>
                 </div>
                 <span
