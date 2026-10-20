@@ -47,21 +47,21 @@ function BioBlock() {
       <span style={{ color: "var(--text-primary)", fontWeight: 600 }}>
         Marketing Specialist
       </span>{" "}
-      managing content strategy and production across Instagram, LinkedIn,
-      and YouTube at{" "}
-      <a
-        href="https://eva.guru"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ color: "var(--text-primary)", fontWeight: 600 }}
-        className="underline underline-offset-2 hover:opacity-80 transition-opacity"
-      >
-        Eva Commerce
-      </a>
-      , bridging creative and analytical skills.
-      Experienced in social content planning, short- and long-form video
-      production and editing, podcast scripting, newsletter management, and
-      data-driven blog production using Google Analytics. Also an active{" "}
+      with hands-on experience managing content strategy and production across
+      Instagram, LinkedIn, and YouTube, bridging creative and analytical skills
+      to build brand presence and drive measurable growth. Experienced in{" "}
+      <span style={{ color: "var(--accent)", fontWeight: 600 }}>
+        social media strategy and content planning, short-form and long-form
+        video production and editing
+      </span>{" "}
+      (CapCut),{" "}
+      <span style={{ color: "var(--accent)", fontWeight: 600 }}>
+        end-to-end podcast production,
+      </span>{" "}
+      LinkedIn newsletter management, brand positioning, and data-driven blog
+      production using Google Analytics. Skilled in AI-powered content creation,
+      partnership development, community engagement, and social media metrics
+      tracking and reporting. Also an active{" "}
       <a
         href={contact.instagram}
         target="_blank"

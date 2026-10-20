@@ -155,18 +155,6 @@ export function Contact() {
             ))}
           </div>
         </motion.div>
-
-        {/* Email displayed */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-8 text-sm font-mono"
-          style={{ color: "var(--text-secondary)" }}
-        >
-          {contact.email}
-        </motion.p>
       </div>
     </section>
   );
