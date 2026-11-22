@@ -279,5 +279,5 @@ export const contact = {
   email: "halenur.gurel@hotmail.com",
   github: "https://github.com/halenurgurel",
   linkedin: "https://www.linkedin.com/in/halenurgurel/",
-  instagram: "https://instagram.com/nailsbyhalee",
+  instagram: "https://instagram.com/itshalegurel",
 };
